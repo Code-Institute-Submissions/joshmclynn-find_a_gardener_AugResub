@@ -15,6 +15,7 @@ class business(models.Model):
     design = models.BooleanField()
     date_joined = models.DateTimeField
     location = models.CharField(max_length = 100)
+    description = models.CharField(max_length = 300)
 
 
 class customer(models.Model):
