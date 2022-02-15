@@ -9,6 +9,7 @@ dbus-python==1.2.16
 dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.6
 Django==3.2
+django-cloudinary-storage==0.3.0
 dulwich==0.19.15
 fastimport==0.9.8
 gunicorn==20.1.0
