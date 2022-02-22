@@ -14,9 +14,12 @@ class business(models.Model):
     maintenance = models.BooleanField()
     tree = models.BooleanField()
     design = models.BooleanField()
-    date_joined = models.DateTimeField
+    date_joined = models.DateTimeField()
     location = models.CharField(max_length = 100)
     description = models.CharField(max_length = 300)
+
+
+    
 
 # Model for customer users
 class customer(models.Model):
@@ -28,5 +31,6 @@ class customer(models.Model):
     maintenance = models.BooleanField()
     tree = models.BooleanField()
     design = models.BooleanField()
-    date_joined = models.DateTimeField
+    date_joined = models.DateTimeField()
     location = models.CharField(max_length = 100)
+

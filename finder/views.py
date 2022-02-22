@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import 
+from finder.models import customer
+from django.views.generic import ListView
 
 # Create your views here.
 
-class Index():
-    template_name = "index.html"
+def index (request):
+    return render(request, 'index.html')
+
+   
+
     
