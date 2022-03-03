@@ -17,7 +17,7 @@ def business_reg(request):
             businessForm.save()
             message.sucess(request, ('Thank you for registering!'))
         else:
-            message.error(request, 'Unable to complete registration please check your inputs')
+            message.error(request, 'Unable to complete registration please try again')
 
         return redirect("main:busi_registration")
     businessForm = business_form()
@@ -27,4 +27,16 @@ def business_reg(request):
 
     
 def customer_reg(request):
-    return render(request, 'cust_registration.html')
+    if request.method == 'POST':
+        customerForm = customer_form(request.POST , request.FILES)
+        if customerForm.is_valid():
+            customerForm.save()
+            message.sucess(request, ('Thank you for registering!'))
+        else:
+            message.error(request, 'Unable to complete registration please try again')
+
+        return redirect("main:cust_registration")
+    customerForm = customer_form()
+
+    return render(request, 'cust_registration.html', context={'customerForm':customerForm})
+    

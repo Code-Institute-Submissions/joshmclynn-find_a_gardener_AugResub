@@ -4,5 +4,10 @@
 
 <h1>Customer Form</h1>
 
+<form method = "post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{customerForm}}
+    <button type = "submit">Submit</button>
+</form>
 
 {%endblock%}
