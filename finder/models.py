@@ -19,6 +19,8 @@ class business(models.Model):
     description = models.CharField(max_length = 300)
 
 
+    def __str__(self):
+        return self.company_name
     
 
 # Model for customer users
@@ -33,4 +35,8 @@ class customer(models.Model):
     design = models.BooleanField()
     date_joined = models.DateTimeField()
     location = models.CharField(max_length = 100)
+
+
+    def __str__(self):
+        return self.f_name
 
