@@ -1,1 +1,1 @@
-web: gunicorn FINDER.wsgi
+web: gunicorn finder.wsgi
