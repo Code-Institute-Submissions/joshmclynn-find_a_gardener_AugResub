@@ -1,1 +1,1 @@
-web: gunicorn FIND_A_GARDENER.wsgi
+web: gunicorn FINDER.wsgi
