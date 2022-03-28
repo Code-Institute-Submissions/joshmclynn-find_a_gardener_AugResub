@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<section id = "scroll">
 <h1>Customer Form</h1>
 
 <form method = "post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{customerForm}}
+    {%load crispy_forms_tags %}
+    {{customerForm|crispy}}
     <button type = "submit">Submit</button>
 </form>
-
+</section>
 {%endblock%}

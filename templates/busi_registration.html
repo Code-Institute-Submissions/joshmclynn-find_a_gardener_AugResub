@@ -4,7 +4,8 @@
 
 <h1>Business Form</h1>
 <form method = "post" enctype="multipart/form-data">
-    {{businessForm}}
+    {%load crispy_forms_tags %}
+    {{businessForm|crispy}}
     <button type = "submit">Submit</button>
 </form>
 
