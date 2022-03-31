@@ -15,11 +15,11 @@ def business_reg(request):
         businessForm = business_form(request.POST , request.FILES)
         if businessForm.is_valid():
             businessForm.save()
-            message.sucess(request, ('Thank you for registering!'))
-        else:
-            message.error(request, 'Unable to complete registration please try again')
+            
+        
+            
 
-        return redirect("main:busi_registration")
+        
     businessForm = business_form()
 
     return render(request, 'busi_registration.html', context={'businessForm':businessForm})
@@ -31,11 +31,11 @@ def customer_reg(request):
         customerForm = customer_form(request.POST , request.FILES)
         if customerForm.is_valid():
             customerForm.save()
-            message.sucess(request, ('Thank you for registering!'))
-        else:
-            message.error(request, 'Unable to complete registration please try again')
+            
+        
+            
 
-        return redirect("main:cust_registration")
+        
     customerForm = customer_form()
 
     return render(request, 'cust_registration.html', context={'customerForm':customerForm})
