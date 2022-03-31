@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<section id = "scroll">
+
 <h1>Customer Form</h1>
 
 <form method = "post" enctype="multipart/form-data">
@@ -10,5 +10,5 @@
     {{customerForm|crispy}}
     <button type = "submit">Submit</button>
 </form>
-</section>
+
 {%endblock%}

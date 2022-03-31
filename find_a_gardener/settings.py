@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms',
     'finder',
-    'crispy_forms'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
