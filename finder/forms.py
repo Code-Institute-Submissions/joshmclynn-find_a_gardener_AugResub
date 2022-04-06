@@ -1,9 +1,11 @@
 from django import forms
 from .models import business, customer
 
-class business_form(forms.ModelForm):
 
+class business_form(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
+        
         model = business
         fields = ('__all__')
         labels = {
@@ -23,7 +25,7 @@ class business_form(forms.ModelForm):
 
 
 class customer_form(forms.ModelForm):
-
+    password = forms.CharField(widget=forms.PasswordInput)
     class Meta:
         model = customer
         fields = ('__all__')
@@ -38,3 +40,11 @@ class customer_form(forms.ModelForm):
             'design':'Garden Design',
             'location':'City'
         }
+
+
+class login():
+    
+    class Meta:
+        model = customer
+        fields = ('Username','password')
+        

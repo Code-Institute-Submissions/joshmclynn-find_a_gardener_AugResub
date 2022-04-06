@@ -25,4 +25,5 @@ urlpatterns = [
     path('', views.index , name = 'index'),
     path('business-registration/', views.business_reg , name = 'business_registration'),
     path('customer-registration/', views.customer_reg , name = 'customer_registration'),
+    path('accounts/', include('allauth.urls')),
 ]

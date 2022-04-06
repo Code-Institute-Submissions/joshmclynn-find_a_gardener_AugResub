@@ -6,6 +6,7 @@ from cloudinary.models import CloudinaryField
 # Model for business users
 class business(models.Model):
     company_name = models.CharField(max_length = 75, unique = True)
+    password = models.CharField(max_length = 50, default = 'none')
     f_name = models.CharField(max_length = 100)
     l_name = models.CharField(max_length = 100)
     email = models.EmailField(max_length = 254, unique = True)
@@ -16,7 +17,7 @@ class business(models.Model):
     design = models.BooleanField()
     location = models.CharField(max_length = 100)
     description = models.CharField(max_length = 300)
-
+    
 
     def __str__(self):
         return self.company_name
@@ -24,6 +25,8 @@ class business(models.Model):
 
 # Model for customer users
 class customer(models.Model):
+    username = models.CharField(max_length = 50, unique = True, default = '')
+    password = models.CharField(max_length = 50, default = 'none')
     f_name = models.CharField(max_length = 100)
     l_name = models.CharField(max_length = 100)
     image = CloudinaryField('image', default='placeholder')
@@ -33,8 +36,9 @@ class customer(models.Model):
     tree = models.BooleanField()
     design = models.BooleanField()
     location = models.CharField(max_length = 100)
-
+    
 
     def __str__(self):
-        return self.f_name
+        return self.username
+
 

@@ -9,13 +9,28 @@ from .forms import business_form, customer_form
 def index(request):
     return render(request, 'index.html')
 
+
+def login_req(request):
+    if request.method == 'POST':
+        form = authenicationForm(request, data = request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authicate(username = username, password = password)
+            if user is not None:
+                login(request,user)
+                return redirect("main:index")
+    
+    
+    
    
 def business_reg(request):
     if request.method == 'POST':
         businessForm = business_form(request.POST , request.FILES)
         if businessForm.is_valid():
             businessForm.save()
-            
+        
+                
         
             
 
