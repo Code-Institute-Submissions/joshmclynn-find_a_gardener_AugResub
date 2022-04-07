@@ -1,50 +1,25 @@
+from allauth.account.forms import SignupForm
 from django import forms
-from .models import business, customer
 
 
-class business_form(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    class Meta:
-        
-        model = business
-        fields = ('__all__')
-        labels = {
-            'company_name':'Company Name',
-            'f_name':'First Name',
-            'l_name':'Last Name',
-            'email':'Email',
-            'image':'Company Logo',
-            'landscaping':'Landscaping',
-            'maintenance':'Garden Maintenance',
-            'tree':'Tree Surgery',
-            'design':'Garden Design',
-            'location':'City',
-            'description':'Company Description'
-        }
-
-
-
-class customer_form(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
-    class Meta:
-        model = customer
-        fields = ('__all__')
-        labels={
-            'f_name':'First Name',
-            'l_name':'Last Name',
-            'email':'Email',
-            'image':'Profile Image',
-            'landscaping':'Landscaping',
-            'maintenance':'Garden Maintenance',
-            'tree':'Tree Surgery',
-            'design':'Garden Design',
-            'location':'City'
-        }
-
-
-class login():
+CHOICES = [('customer','Customer'),('business','Business')]
+NEEDS = [('garden-maintenance','Garden-Maintenance'),('garden-design','Garden-Design'),('landscaping','Landscaping'),('tree-surgery','Tree-Surgery')]
+class newSignUpForm(SignupForm):
     
-    class Meta:
-        model = customer
-        fields = ('Username','password')
+    
+    are_you_a_business = forms.MultipleChoiceField(
+                                                widget = forms.CheckboxSelectMultiple,
+                                                choices = CHOICES
+        
+                                                )
+    userNeeds = forms.MultipleChoiceField(
+                                          widget = forms.CheckboxSelectMultiple,
+                                          choices = NEEDS
+                                          )
+    Location = forms.CharField(max_length=30)
+    
+
+
+
+
         

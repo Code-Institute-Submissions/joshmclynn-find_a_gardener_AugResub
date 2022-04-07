@@ -57,6 +57,10 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+ACCOUNT_FORMS = {
+    'signup':'finder.forms.newSignUpForm'
+}
+
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
