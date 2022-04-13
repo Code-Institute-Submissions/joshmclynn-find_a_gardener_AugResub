@@ -58,12 +58,14 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 ACCOUNT_FORMS = {
-    'signup':'finder.forms.newSignUpForm'
+    'signup':'finder.forms.CustomSignupForm',
 }
+
+AUTH_USER_MODEL = 'finder.CustomUser'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
+ACCOUNT_EMAIL_VERIFICATION = None
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
@@ -89,6 +91,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                
             ],
         },
     },
