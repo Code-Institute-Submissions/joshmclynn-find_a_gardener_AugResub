@@ -34,7 +34,9 @@ def matches(request):
                                         needs__icontains=d,
                                        location__icontains=c)
        
-        context = {'allusers': all_users.values('username','location','needs','user_type')}
+        context = {'allusers': all_users.values('username','email','location','needs','user_type')}
+        print(context)
+        print(type(context))
         return render(request, 'matches.html', context)
     else:
         return render(request, 'account/signup.html')
