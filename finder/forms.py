@@ -25,7 +25,8 @@ class CustomSignupForm(SignupForm):
                                         
                                           )
         location = forms.CharField(max_length=30,
-                                   label = 'What City do you live in?'
+                                   label = 'What City do you live in?',
+                                   required = True
                                     )
                                    
                             

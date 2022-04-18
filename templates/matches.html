@@ -1,0 +1,7 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Hey</h1>{{request.user.username}}<br>
+<h1>Below are you matches </h1>
+{% for item in allusers %}
+<li>{{ item }}</li>
+{% endfor %}
+{% endblock content %}

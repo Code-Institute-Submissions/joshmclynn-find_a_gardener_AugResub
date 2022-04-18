@@ -22,7 +22,10 @@ class CustomUser(AbstractUser):
     location = models.CharField(max_length=255, blank = True, editable=True)
     
     
+
     
+    
+   
         
                              
     

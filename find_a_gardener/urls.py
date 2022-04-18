@@ -24,4 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index , name = 'index'),
     path('accounts/', include('allauth.urls')),
+    path('matches/', views.matches, name = 'Matches'),
 ]
