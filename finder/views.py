@@ -5,7 +5,6 @@ from django.views.generic import ListView
 from django.contrib.auth import get_user_model
 
 
-
 # Create your views here.
 
 def index(request):
@@ -22,17 +21,20 @@ def matches(request):
     ##current user needs
     d = request.user.needs
     currentUser = [a,b,c,d]
-    model = CustomUser
     print(currentUser)
     if request.user.is_authenticated:
-        
-        
         user = get_user_model()
-        
-        all_users = user.objects.filter(
+        if (b == 'business'):
+            all_users = user.objects.filter(user_type__icontains='customer',
                                         needs__icontains=d,
                                        location__icontains=c)
-        context = {'allusers': all_users}
+        
+        else:
+            all_users = user.objects.filter(user_type__icontains='business',
+                                        needs__icontains=d,
+                                       location__icontains=c)
+       
+        context = {'allusers': all_users.values('username','location','needs','user_type')}
         return render(request, 'matches.html', context)
     else:
         return render(request, 'account/signup.html')
