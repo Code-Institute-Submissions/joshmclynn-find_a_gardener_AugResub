@@ -13,11 +13,9 @@ class CustomSignupForm(SignupForm):
         
         fields = ('user_type','needs','location')
    
-        user_type = forms.MultipleChoiceField(
-                                                widget = forms.CheckboxSelectMultiple,
-                                                choices = CHOICES,
-                                                label = 'Are you a Business or a Customer?'
-                                                )
+        user_type = forms.ChoiceField(choices=CHOICES,label = 'Are you a Business or a Customer?')
+                                                
+                                             
         needs = forms.MultipleChoiceField(
                                           widget = forms.CheckboxSelectMultiple,
                                           choices = NEEDS,

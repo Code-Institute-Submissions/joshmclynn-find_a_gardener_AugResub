@@ -21,22 +21,21 @@ def matches(request):
     ##current user needs
     d = request.user.needs
     currentUser = [a,b,c,d]
-    print(currentUser)
+    
     if request.user.is_authenticated:
         user = get_user_model()
         if (b == 'business'):
             all_users = user.objects.filter(user_type__icontains='customer',
                                         needs__icontains=d,
                                        location__icontains=c)
-        
         else:
             all_users = user.objects.filter(user_type__icontains='business',
                                         needs__icontains=d,
                                        location__icontains=c)
+            
        
         context = {'allusers': all_users.values('username','email','location','needs','user_type')}
-        print(context)
-        print(type(context))
+        
         return render(request, 'matches.html', context)
     else:
         return render(request, 'account/signup.html')
