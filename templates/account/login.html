@@ -6,11 +6,24 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">LOGIN</h1>
+            
+            
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign In" %}</h3>
+            
 
             <p>{% blocktrans %}Welcome back to the Find a Gardner. Please log in Below. If
                 you
@@ -26,7 +39,7 @@
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
+                <button class="btn btn-primary btn-xl rounded-pill mt-5" type="submit">{% trans "Sign In" %}</button>
             </form>
         </div>
     </div>

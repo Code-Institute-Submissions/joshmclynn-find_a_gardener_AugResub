@@ -5,10 +5,22 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">SIGN-UP</h1>
+            
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
 <div class="container px-5">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-            <h3>{% trans "Sign Up" %}</h3>
+           
 
             <p>{% blocktrans %}Welcome back to Find a Gardener. If you already have an account? Then please <a
                     class="link" href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
