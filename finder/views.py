@@ -24,6 +24,7 @@ def matches(request):
     
     if request.user.is_authenticated:
         user = get_user_model()
+        
         if (b == 'business'):
             all_users = user.objects.filter(user_type__icontains='customer',
                                         needs__icontains=d,
@@ -34,7 +35,7 @@ def matches(request):
                                        location__icontains=c)
             
        
-        context = {'allusers': all_users.values('username','email','location','needs','user_type')}
+        context = {'allusers': all_users.values('username','email','location','needs','user_type').exclude(username = request.user)}
         
         return render(request, 'matches.html', context)
     else:
