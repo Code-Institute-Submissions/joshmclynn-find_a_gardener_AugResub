@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 
 
 
-
+##customising Django user model to accomadate new fields
 class CustomUserAdmin(UserAdmin):
     add_form = CustomSignupForm
     model = CustomUser
