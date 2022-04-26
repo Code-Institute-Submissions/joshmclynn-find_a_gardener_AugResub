@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 {% block content %}
 <header class="masthead text-center text-white">
     <div class="masthead-content">
@@ -15,10 +15,53 @@
     <div class="bg-circle-4 bg-circle"></div>
 </header>
 
-{% for key in allusers %}
-<ul>
-    <section id="scroll">
-        <div class="container px-5">
+
+
+
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    
+    <div class="carousel-inner">
+        {% for key in allusers %}
+        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}" id = "{{ forloop.counter }}">
+            
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center">
+                    
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <h2 class="display-5">{{key.username}}</h2>
+                            <h3 class="display-6">Location</h3>
+                            <ul>{{key.location}}</ul>
+                            <h3 class="display-6">Services Provided</h3>
+                            {% for need in key.needs%}
+                            <ul>{{need}}</ul>
+                            {% endfor %}
+                            <h3 class="display-6">Contact</h3>
+                            <ul id = "emailCopy">{{key.email}}</ul>
+                            <button onclick="clickCopy()">Copy Email</button>
+                            
+                        </div>
+                    </div>
+                </div>      
+            </div>
+            
+
+        </div>
+        {% endfor %}
+
+    </div>
+    
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    
+</div>
+    <!-- <div class="container px-5">
             <div class="row gx-5 align-items-center">
                 <div class="col-lg-6">
                     <div class="p-5"><img class="img-fluid rounded-circle" src="" alt="..." /></div>
@@ -39,11 +82,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</ul>   
-{% endfor %}
+        </div> -->
 
-{% endblock content %}
-{% block scripts %} 
-{% endblock %}
+
+
+    {% endblock content %}
+    {% block scripts %}
+    {% endblock %}

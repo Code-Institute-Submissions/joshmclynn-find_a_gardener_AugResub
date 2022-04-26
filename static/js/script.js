@@ -12,3 +12,9 @@ function clickCopy(){
         'Email Copied to clipboard'
     )
 }
+
+
+$('#myCarousel').carousel({pause: "hover"});
+
+
+
