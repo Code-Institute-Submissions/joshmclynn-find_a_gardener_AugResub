@@ -26,20 +26,20 @@
             
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
-                    
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{ static 'images\business.jpg'}" alt="..." /></div>
+                    </div>
                     <div class="col-lg-6">
                         <div class="p-5">
                             <h2 class="display-5">{{key.username}}</h2>
                             <h3 class="display-6">Location</h3>
                             <ul>{{key.location}}</ul>
-                            <h3 class="display-6">Services Provided</h3>
+                            <h3 class="display-6">Services Provided/Needed</h3>
                             {% for need in key.needs%}
                             <ul>{{need}}</ul>
                             {% endfor %}
-                            <h3 class="display-6">Contact</h3>
-                            <ul id = "emailCopy">{{key.email}}</ul>
-                            <button onclick="clickCopy()">Copy Email</button>
-                            
+                            <h3 class="display-6">Contact Details</h3>
+                            <ul id = "emailCopy">{{key.email}}</ul>   
                         </div>
                     </div>
                 </div>      
@@ -48,6 +48,7 @@
 
         </div>
         {% endfor %}
+        
 
     </div>
     
@@ -61,31 +62,13 @@
         </a>
     
 </div>
-    <!-- <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-                <div class="col-lg-6">
-                    <div class="p-5"><img class="img-fluid rounded-circle" src="" alt="..." /></div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="p-5">
-                        <h2 class="display-5">{{key.username}}</h2>
-                        <h3 class="display-6">Location</h3>
-                        <ul>{{key.location}}</ul>
-                        <h3 class="display-6">Services Provided</h3>
-                        {% for need in key.needs%}
-                        <ul>{{need}}</ul>
-                        {% endfor %}
-                        <h3 class="display-6">Contact</h3>
-                        <ul id = "emailCopy">{{key.email}}</ul>
-                        <button onclick="clickCopy()">Copy Email</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
 
+</div>
+    
 
+
+    
     {% endblock content %}
     {% block scripts %}
     {% endblock %}

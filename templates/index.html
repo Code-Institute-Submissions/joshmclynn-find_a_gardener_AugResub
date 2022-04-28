@@ -22,6 +22,22 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
+                
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Locations</h2>
+                    <p>We hope to be up and running in more areas soon, for now find-a-gardener is operating in these locations</p>
+                    {% for data in locations %}
+                    <ul>{{data.location|capfirst}}</ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
                 <div class="p-5"><img class="img-fluid rounded-circle" src="{ static 'images\business.jpg'}" alt="..." /></div>
             </div>
             <div class="col-lg-6 order-lg-1">

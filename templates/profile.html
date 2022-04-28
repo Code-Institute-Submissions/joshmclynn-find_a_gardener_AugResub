@@ -1,0 +1,70 @@
+{% extends "base.html" %} 
+{% block title %}Profile Page{% endblock title %} 
+{% load crispy_forms_tags %}
+{% block content %} 
+
+<header class="masthead text-center text-white">
+    <div class="masthead-content">
+        <div class="container px-5">
+            <h1 class="masthead-heading mb-0">Welcome</h1>
+            <h2 class="masthead-subheading mb-0">{{ request.user.username }}</h2>
+            <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Click here to make changes to your profile</a>
+        </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+</header>
+<!-- Content section 1-->
+<section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            {% if user_form.error %} 
+                <div class = "alert alert-danger alert-dismissable"role="alert">
+                    <div id = "form_errors">
+                        {% for key, value in user_form.errors.items %}
+                        <strong>{{value}}</strong>
+                        {% endfor %} 
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <form method = "POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+            <div class="form-row">
+                <div class="col-md-5">
+                    <div class="form-group">
+
+                        
+                        <label class="small mb-1">Email:</label>
+                            {{ user_form.email }}
+                    
+                    
+                        <label class="small mb-1">Change Needs/Services:</label>
+                        {{ user_form.needs }}
+                    
+                    <label class="small mb-1">Location</label> {{ user_form.location }}
+                </div>
+                </div>
+            </div>
+            <br><br>
+            <button type="submit" class="btn btn-dark btn-lg">Save Changes</button>
+            <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+        </form> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

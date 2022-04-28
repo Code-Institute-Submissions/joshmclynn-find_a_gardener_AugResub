@@ -6,7 +6,7 @@ from django import forms
 
 
 
-
+locations = CustomUser.objects.values('location')
 CHOICES = [('customer','Customer'),('business','Business')]
 NEEDS = [('garden-maintenance','Garden-Maintenance'),('garden-design','Garden-Design'),('landscaping','Landscaping'),('tree-surgery','Tree-Surgery')]
 class CustomSignupForm(SignupForm):
@@ -22,7 +22,7 @@ class CustomSignupForm(SignupForm):
                                           label = 'What services do you provide or need?'
                                         
                                           )
-        location = forms.CharField(max_length=30,
+        location = forms.CharField(
                                    label = 'What City do you live in?',
                                    required = True
                                     )
@@ -42,3 +42,20 @@ class CustomSignupForm(SignupForm):
 
 
         
+class updateProfile(forms.ModelForm):
+    email = forms.EmailField(required = True)
+    needs = forms.MultipleChoiceField(
+                                          widget = forms.CheckboxSelectMultiple,
+                                          choices = NEEDS,
+                                          label = 'What services do you provide or need?'
+                                        
+                                          )
+    location = forms.CharField(max_length=30,
+                                   label = 'What City do you live in?',
+                                   required = True
+                                    )
+    
+    class Meta:
+        model = CustomUser
+        fields = ['needs','email','location']
+    
