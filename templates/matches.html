@@ -22,7 +22,7 @@
     
     <div class="carousel-inner">
         {% for key in allusers %}
-        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}" id = "{{ forloop.counter }}">
+        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %} carousel-fade" id = "{{ forloop.counter }}">
             
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
@@ -34,11 +34,7 @@
                             <h2 class="display-5">{{key.username|capfirst}}</h2>
                             <h3 class="display-6">Location</h3>
                             <ul>{{key.location}}</ul>
-                            {% if bus == True %}
-                            <h3 class="display-6">Services needed</h3>
-                            {% else %}
-                            <h3 class="display-6">Services Provided</h3>
-                            {% endif %}
+                            <h3 class="display-6">Services needed/provided</h3>
                             {% for need in key.needs%}
                             <ul>{{need}}</ul>
                             {% endfor %}
