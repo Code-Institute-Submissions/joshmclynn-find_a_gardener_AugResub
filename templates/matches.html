@@ -14,23 +14,24 @@
     <div class="bg-circle-3 bg-circle"></div>
     <div class="bg-circle-4 bg-circle"></div>
 </header>
-
-
-
-
+<section id = "scroll">
 <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-    
+    <!--Carousel item-->
     <div class="carousel-inner">
+        <!--for loop, matches return items-->
         {% for key in allusers %}
-        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %} carousel-fade" id = "{{ forloop.counter }}">
-            
+        <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %} carousel-fade"
+            id="{{ forloop.counter }}">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\spade.png' %}" alt="..." /></div>
+
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\daisy.jpg' %}"
+                            alt="..." /></div>
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
+                            <!--Return populated from matches view, takes individual users and displays them on seperate html elements.-->
                             <h2 class="display-5">{{key.username|capfirst}}</h2>
                             <h3 class="display-6">Location</h3>
                             <ul>{{key.location}}</ul>
@@ -39,19 +40,13 @@
                             <ul>{{need}}</ul>
                             {% endfor %}
                             <h3 class="display-6">Contact Details</h3>
-                            <ul id = "emailCopy">{{key.email}}</ul>   
+                            <ul id="emailCopy">{{key.email}}</ul>
                         </div>
                     </div>
-                </div>      
+                </div>
             </div>
-            
-
         </div>
         {% endfor %}
-        
-
-    </div>
-    
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -60,15 +55,10 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    
+    </div>
 </div>
-
-
 </div>
-    
-
-
-    
-    {% endblock content %}
-    {% block scripts %}
-    {% endblock %}
+</section>
+{% endblock content %}
+{% block scripts %}
+{% endblock %}

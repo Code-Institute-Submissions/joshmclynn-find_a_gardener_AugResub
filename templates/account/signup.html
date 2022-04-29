@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-
+{% load crispy_forms_tags %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     <div class="masthead-content">
         <div class="container px-5">
             <h1 class="masthead-heading mb-0">SIGN-UP</h1>
-            
+
         </div>
     </div>
     <div class="bg-circle-1 bg-circle"></div>
@@ -20,21 +20,21 @@
 <div class="container px-5">
     <div class="row">
         <div class="col-md-8 mt-3 offset-md-2">
-           
-
             <p>{% blocktrans %}Welcome back to Find a Gardener. If you already have an account? Then please <a
                     class="link" href="{{ login_url }}">sign in</a> instead.{% endblocktrans %}</p>
         </div>
     </div>
     <div class="row">
+        <!--Sign up form, custom user using allauth -->
         <div class="col-md-8 mt-3 offset-md-2">
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button class="btn btn-primary btn-xl rounded-pill mt-5" type="submit">{% trans "Sign Up" %} &raquo;</button>
+                <button class="btn btn-primary btn-xl rounded-pill mt-5" type="submit">{% trans "Sign Up" %}
+                    &raquo;</button>
             </form>
         </div>
     </div>

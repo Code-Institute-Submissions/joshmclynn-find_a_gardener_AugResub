@@ -20,7 +20,8 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-
+## function returns other users based on a number of attributes that would link the 
+## logged in user to the selected users. 
 def matches(request):
     
     
@@ -61,7 +62,7 @@ def matches(request):
                               
             
        ##returns results excluding current user
-        context = {'allusers': local_users.values('username','email','location','needs','user_type').exclude(username = request.user)}
+        context = {'allusers': local_users.values('username','email','location','needs','user_type').exclude(username = request.user).exclude(username = 'find-a-gardener')}
         if(local_users.count()==0):
             sweetify.warning(request, 'Unfortunately there is no one else in your area at the minute, try again soon!')
         
@@ -73,7 +74,7 @@ def matches(request):
     
     
     
-
+## function to change the current logged in users profile attributes
 @login_required
 def profile(request):
     if request.method == 'POST':

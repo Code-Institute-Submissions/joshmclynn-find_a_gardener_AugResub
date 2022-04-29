@@ -31,7 +31,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["find-a-gardener.herokuapp.com","localhost","127.0.0.1"]
 
 
@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    ##3rd party
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'sweetify',
     'crispy_forms',
+    ##app
     'finder',
 ]
 
@@ -60,12 +62,14 @@ SITE_ID = 1
 ACCOUNT_FORMS = {
     'signup':'finder.forms.CustomSignupForm',
 }
-
+##changing allauth user model
 AUTH_USER_MODEL = 'finder.CustomUser'
+##email account required but no verification required
 ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REDIRECT_URL = 'Matches'
 LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = None
+##3rd party libraries
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
@@ -154,7 +158,7 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+# Still included for futute updates
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 

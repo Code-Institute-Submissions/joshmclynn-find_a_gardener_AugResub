@@ -5,7 +5,7 @@ from django import forms
 
 
 
-
+## form updating current allauth form, to include the attributes that i need within my user model.
 locations = CustomUser.objects.values('location')
 CHOICES = [('customer','Customer'),('business','Business')]
 NEEDS = [('garden-maintenance','Garden-Maintenance'),('garden-design','Garden-Design'),('landscaping','Landscaping'),('tree-surgery','Tree-Surgery')]
@@ -26,7 +26,7 @@ class CustomSignupForm(SignupForm):
                                    label = 'What City do you live in?',
                                    required = True
                                     )
-                                   
+                                 
                             
 
         class Meta:
@@ -41,7 +41,7 @@ class CustomSignupForm(SignupForm):
             return user
 
 
-        
+## Form for users to change attributes when logged in.        
 class updateProfile(forms.ModelForm):
     email = forms.EmailField(required = True)
     needs = forms.MultipleChoiceField(
@@ -57,5 +57,5 @@ class updateProfile(forms.ModelForm):
     
     class Meta:
         model = CustomUser
-        fields = ['needs','email','location']
+        fields = ['email','needs','location']
     
