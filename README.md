@@ -115,7 +115,157 @@ image image image image
  to allow me to fix issues during development instead of backtracking and potentially causing more issues as development went on.
  
  #### Validator Testing
- All code has been validated using the appropriate validators. All code passed validation.
+ All code has been validated using the appropriate validators. The code itself was passing the validators a few variables were detected whilst going through the validation process though.
+ - The w3 html validator did not seem to like the way the {{for loops}} were written, although I believe this is not an error which I would be able to fix due to the nature of the result from the validator.
+image image image
+- VScode picked up a few 'problems' when developing as I have a habit of writing function names in camelcase due to previous experience with java. This was easily rectified.
+#### User Testing.
+
+- Sign up form:
+      - Goal = Try to break the form
+      - Method = Input various random inputs when filling the form in hoping to exploit any shortcomings.
+      - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form.
+- Updating Profile:
+      - Goal = Try to break the form
+      - Method = Input various random inputs when filling the form in hoping to exploit any short comings.
+      - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form.
+- User Confusion:
+      - Goal = Full cycle of website from sign up to matches.
+      - Method = Run through the steps the user would take to sign up to the application
+      - Outcome = I found that if the user entered their city they lived in where there was not any matches, the site would not load anything potentially leading to confusion, I decided to solve this by creating pop up messages, in the event that the user has no matches in there area.
+#### Notable Bugs
+When trying to implement javascript into the application I was finding that the javascript file would not load into the application, I eventually had to move away from using javascript explicitly in the application due to not being able to find a reason for this. Potential issues with the IDE.
+## Technologies Used
+- Python
+    - The following python modules were used/or plan to be implemented within this project in the future:
+        - asgiref==3.4.1
+        - asttokens==2.0.5
+        - cachetools==4.2.4
+        - certifi==2021.10.8
+        - cffi==1.15.0
+        - charset-normalizer==2.0.8
+        - click==8.0.3
+        - cloudinary==1.29.0
+        - colorama==0.4.4
+        - cryptography==36.0.2
+        - defusedxml==0.7.1
+        - dj-database-url==0.5.0
+        - dj3-cloudinary-storage==0.0.6
+        - Django==3.2
+        - django-allauth==0.50.0
+        - django-crispy-forms==1.14.0
+        - django-multiselectfield==0.1.12
+        - executing==0.8.2
+        - Flask==2.0.2
+        - google-auth==2.3.3
+        - google-auth-oauthlib==0.4.6
+        - gspread==5.0.0
+        - gunicorn==20.1.0
+        - idna==3.3
+        - itsdangerous==2.0.1
+        - Jinja2==3.0.3
+        - jupyter-core==4.9.1
+        - MarkupSafe==2.0.1
+        - matplotlib-inline==0.1.3
+        - mypy-extensions==0.4.3
+        - nest-asyncio==1.5.4
+        - numpy==1.21.4
+        - oauthlib==3.1.1
+        - parso==0.8.3
+        - pathspec==0.9.0
+        - pickleshare==0.7.5
+        - platformdirs==2.4.1
+        - prompt-toolkit==3.0.24
+        - psycopg2==2.9.3
+        - pure-eval==0.2.1
+        - pyasn1==0.4.8
+        - pyasn1-modules==0.2.8
+        - pycparser==2.21
+        - Pygments==2.11.2
+        - PyJWT==2.3.0
+        - python-dateutil==2.8.2
+        - python3-openid==3.2.0
+        - pytz==2021.3
+        - pyzmq==22.3.0
+        - requests==2.26.0
+        - requests-oauthlib==1.3.0
+        - rsa==4.8
+        - six==1.16.0
+        - sqlparse==0.4.2
+        - stack-data==0.1.4
+        - sweetify==2.3.0
+        - tomli==1.2.3
+        - tornado==6.1
+        - traitlets==5.1.1
+        - typing_extensions==4.0.1
+        - urllib3==1.26.7
+        - wcwidth==0.2.5
+        - Werkzeug==2.0.2
+- Django
+    - Django was used as the main python framework for the development of the project.
+    - Django-allauth was used to provide enhanced user account management.
+- Heroku
+    - Deployment
+- Heroku PostgreSQL
+    - Used as the database during production and deployment
+- Bootstrap
+    - Used for layout and spacing requirements and to realise the template I used.
+- CSS 
+    - Css used from the template, minified to save on storage space.
+- Jinja
+    - Templating language to insert data into html templates
+- HTML 
+    - Base language for templates.
+ 
+### Packages Used
+- VSCODE
+- GITHUB/GITHUB DESKTOP- for storage and version control
+- DrawSQL was used to develop database imaging.
+
+### Resources Used
+- Django.docs has been used throughout to help during development.
+- Stackoverflow, able to research into various ways to perform certain functions etc.
+
+## Deployment
+### Project Deployment
+To deploy the project through Heroku I followed these steps:
+
+- Sign up / Log in to Heroku
+- From the main Heroku Dashboard page select 'New' and then 'Create New App'
+- Give the project a name - I entered The-Pantry and select a suitable region, then select create app. The name for the app must be unique.
+- This will create the app within Heroku and bring you to the deploy tab. From the submenu at the top, navigate to the resources tab.
+- Add the database to the app, in the add-ons section search for 'Heroku Postgres', select the package that appears and add 'Heroku Postgres' as the database
+- Navigate to the setting tab, within the config vars section copy the DATABASE_URL to the clipboard for use in the Django configuration.
+- Within the django app repository create a new file called env.py - within this file import the os library and set the environment variable for the DATABASE_URL      pasting in the address copied from Heroku. The line should appear as os.environ["DATABASE_URL"]= "Paste the link in here"
+- Add a secret key to the app using os.environ["SECRET_KEY"] = "your secret key goes here"
+- Add the secret key just created to the Heroku Config Vars as SECRET_KEY for the KEY value and the secret key value you created as the VALUE
+- In the settings.py file within the django app, import Path from pathlib, import os and import dj_database_url
+- insert the line if os.path.isfile("env.py"): import env
+- remove the insecure secret key that django has in the settings file by default and replace it with SECRET_KEY = os.environ.get('SECRET_KEY')
+- replace the databases section with DATABASES = { 'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))} ensure the correct indentation for python is used.
+- In the terminal migrate the models over to the new database connection
+- Navigate in a browser to cloudinary, log in, or create an account and log in.
+- From the dashboard - copy the CLOUDINARY_URL to the clipboard
+- In the env.py file created earlier - add os.environ["CLOUDINARY_URL"] = "paste in the Url copied to the clipboard here"
+- In Heroku, add the CLOUDINARY_URL and value copied to the clipboard to the config vars
+- Also add the KEY - DISABLE_COLLECTSTATIC with the Value - 1 to the config vars
+ this key value pair must be removed prior to final deployment
+- Add the cloudinary libraries to the list of installed apps, the order they are inserted is important, 'cloudinary_storage' goes above 'django.contrib.staitcfiles' and 'cloudinary' goes below it.
+- In the Settings.py file - add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
+- Link the file to the templates directory in Heroku TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+- Change the templates directory to TEMPLATES_DIR - 'DIRS': [TEMPLATES_DIR]
+- Add Heroku to the ALLOWED_HOSTS list the format will be the app name given in Heroku when creating the app followed by .herokuapp.com
+- In your code editor, create three new top level folders, media, static, templates
+- Create a new file on the top level directory - Procfile
+- Within the Procfile add the code - web: guincorn PROJECT_NAME.wsgi
+- In the terminal, add the changed files, commit and push to GitHub
+- In Heroku, navigate to the deployment tab and deploy the branch manually - watch the build logs for any errors.
+- Heroku will now build the app for you. Once it has completed the build process you will see a 'Your App Was Successfully Deployed' message and a link to the app to visit the live site.
+
+## Credits
+- [The original template design](https://startbootstrap.com/theme/one-page-wonder)
+
+
  
  
       
