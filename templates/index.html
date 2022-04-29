@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load sweetify %}
+{% sweetify %}
 
 {% block content %}
 
@@ -19,18 +20,34 @@
 </header>
 <!-- Content section 1-->
 <section id="scroll">
-    <div class="container px-5">
+    <div class="container px-5 align-items-center">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\atlas.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">About</h2>
+                    <p></p>
+                    
+                    <p>You can still sign up where you currently live, members may start appearing in your area soon.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container px-5 align-items-center">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\atlas.jpg' %}" alt="..." /></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
                     <h2 class="display-4">Locations</h2>
                     <p>We hope to be up and running in more areas soon, for now find-a-gardener is operating in these locations</p>
                     {% for data in locations %}
-                    <ul>{{data.location|capfirst}}</ul>
+                    <ul class ="list-inline">{{data.location|capfirst}}</ul>
                     {% endfor %}
+                    <p>You can still sign up where you currently live, members may start appearing in your area soon.</p>
                 </div>
             </div>
         </div>
@@ -38,7 +55,7 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="p-5"><img class="img-fluid rounded-circle" src="{ static 'images\business.jpg'}" alt="..." /></div>
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\business.jpg' %}" alt="..." /></div>
             </div>
             <div class="col-lg-6 order-lg-1">
                 <div class="p-5">
@@ -55,7 +72,7 @@
     <div class="container px-5">
         <div class="row gx-5 align-items-center">
             <div class="col-lg-6">
-                <div class="p-5"><img class="img-fluid rounded-circle" src="{ static 'images\customer.jpg'}" alt="..." /></div>
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'images\customer.jpg' %}" alt="..." /></div>
             </div>
             <div class="col-lg-6">
                 <div class="p-5">

@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'sweetify',
     'crispy_forms',
     'finder',
 ]
@@ -66,7 +67,7 @@ LOGIN_REDIRECT_URL = 'Matches'
 LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = None
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
 
 
 

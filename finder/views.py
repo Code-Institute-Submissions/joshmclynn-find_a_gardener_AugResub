@@ -5,12 +5,12 @@ from django.views.generic import ListView
 from django.contrib.auth import get_user_model
 from .forms import updateProfile
 from django.contrib.auth.decorators import login_required
+import sweetify
 
 
 
 
-# Create your views here.
-
+##view to return current cities users are located in.
 def index(request):
     short_locations = []
     locations = CustomUser.objects.values('location').distinct()
@@ -42,6 +42,7 @@ def matches(request):
             ##returns 'business' users results based on inputs given at sign up
             all_users = user.objects.filter(user_type__icontains='customer')
             print(all_users)
+            
             for i in d:
                 correctusers = all_users.filter(needs__icontains=i)
             
@@ -51,7 +52,6 @@ def matches(request):
         else:
             ##returns 'customer' user results based on inputs given at sign up
             all_users = user.objects.filter(user_type__icontains='business')
-            
             for i in d:
                 correctusers = all_users.filter(needs__icontains=i)
             
@@ -62,9 +62,12 @@ def matches(request):
             
        ##returns results excluding current user
         context = {'allusers': local_users.values('username','email','location','needs','user_type').exclude(username = request.user)}
+        if(local_users.count()==0):
+            sweetify.warning(request, 'Unfortunately there is no one else in your area at the minute, try again soon!')
         
-            
+    
         return render(request, 'matches.html', context)
+        
     else:
         return render(request, 'account/signup.html')
     
@@ -78,7 +81,8 @@ def profile(request):
         
         if userform.is_valid():
             userform.save()
-            return redirect(to='index')
+            sweetify.success(request,title='Your profile has been updated!')
+            return redirect(to='index',)
     else:
         user_form = updateProfile(instance= request.user)
         
