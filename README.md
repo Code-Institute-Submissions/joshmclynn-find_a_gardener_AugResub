@@ -16,9 +16,10 @@ who is available to help them.
   2. Features
      - Home Page
      - Navigation Bar
-     - Sign-up
+     - Sign-Up
      - Matches
      - Profile update
+     - Admin
   3. Future Goals
   4. Technologies Used
   5. Testing
@@ -70,15 +71,51 @@ who is available to help them.
  application.
 image image image image
  ### Design
-     - When Creating this application I found that an abundance of pre-built templates fit the mold of what I was trying to achieve, I eventually settled on a 
+   - When Creating this application I found that an abundance of pre-built templates fit the mold of what I was trying to achieve, I eventually settled on a 
         template that fit the asthetic that I was trying to achieve, although I customised the contents of the template the basic structure is from a template.
         TEMPLATE SOURCE ![link to template source](https://startbootstrap.com/theme/one-page-wonder)
  ### Images
-     - I felt that although the theme throughout the site is quite bright and colourful that I should use images that would bring back to the angle the 
+   - I felt that although the theme throughout the site is quite bright and colourful that I should use images that would bring back to the angle the 
      site is coming from, with gardening and horticulte being prominent. Images sourced from ![Unsplash.com](https://unsplash.com/)
 ## Features
   ### Home Page
-    
+  A vibrant homepage was created to welcome users to the site and create intrigue and excitement. Below the main banner style head of the page is a section containing
+  information relavent to the site including reviews from previous users.
+  An important feature of the homepage is the Locations section, this allows potential users to see where the application is currently active, although still encouraging them to sign up for the future, the list of cities is updated as more users create accounts in cities that might not appear on the list when they sign up
+  but will do after they key in there location.
+  image image image
+  ### Navigation Bar
+  A functional yet discreet navigation bar was created in order to not detract away from the main content. When a user is authenticated their options within the nav bar will change to more functional options, 'matches','update profile' and 'logout' whereas someone who is yet to log in will only see, 'home','sign-up','log-in'.
+  image image image
+  ### Sign-Up
+  This section utilises the allauth sign up form, combined with custom form inputs created in order to allow the user to create a full user profile containing the 
+  neccesary information to perform the searches.
+  image image image
+  ### Matches
+  The matches page, is loaded from when the user signs up, this page automatically displays the results from a function that searches the database based on the users 
+  requirements and returns them to the user in a carousel, this display allows the user to see the individual users individually. When the user hovers over the user they may be interested in the carousel stops, the carousel can also be rotated by the use of the key board keys (<- and ->). The matches page will also display after the user has updated their profile allowing the user to see how their reselected options will effect their search.
+  image image image
+  ### Profile Update
+  The profile update page is easily accesible to the user, always located in the navigation bar once the user is logged in, it provides the user a chance to change search options, this could be to change the services they require/offer or to change their location the user can also change their email in this section. 
+  image image image
+  ### Admin
+  In order to fully utilies the allauth authentication with a custom model, it was neccesary to edit the AUTH_USER_MODEL to include the extra features I wanted to add to the User model, this was created in the admin.py file creating and adapting the 'search fields'.
+  image image image
+ ## Future Goals
+   - As a user I would like to upload my own profile image in order to give my profile more personality.
+   - As a site owner I would like to implement an email function, allowing users to email customers or businesses directly from the application(django.mail, or django.postman)
+   - As a user/site owner, I would like to be able to tailor my search results based on distance. (i.e 'within 10 miles of my locations) this could be achieved by using django.locations.
+   - The implemtation of a description area for users profiles, to include the information about themselves and maybe their website etc.
+ ## Testing
+ ### Testing Implementation Strategy
+ When testing this site I found that testing it manually as a user would prove to be the most effect method for the application in its current stage.
+ 
+ #### Testing Goals
+ Testing was ordered into sections of how a user would process through the site, I started to implement these tests as soon as it was feesibly possible in order 
+ to allow me to fix issues during development instead of backtracking and potentially causing more issues as development went on.
+ 
+ #### Validator Testing
+ All code has been validated using the appropriate validators. All code passed validation.
  
  
       
