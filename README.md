@@ -1,7 +1,7 @@
 # Find a Gardener
 ## Introduction
 Find a gardener is an application built in django using python with html and css. It allows users to find local garden companies or customers which require particular
-services. Targeting both business' and customers, it allows users to select various services that they offer, or need and target certain cities in order to find someone
+services. Targeting both businesses and customers, it allows users to select various services that they offer, or need and target certain cities in order to find someone
 who is available to help them. 
 ![Home Screen](https://github.com/joshmclynn/find_a_gardener/blob/main/assets/screenshots/home.PNG)
 [To view the live site please click here](https://find-a-gardener.herokuapp.com/)
@@ -28,7 +28,7 @@ who is available to help them.
 ## User Experience/Design(UX)
   ### Goals
   #### Ideal Users
-  - Customers looking for contracters in their local area to carry out works
+  - Customers looking for contractors in their local area to carry out works
   - Business's looking to offer their services to customers in their local area.
   - Someone looking for activity regarding horticultural services in certain areas.
   #### Site Goals
