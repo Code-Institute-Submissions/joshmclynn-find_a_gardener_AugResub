@@ -232,6 +232,8 @@ When trying to implement Javascript into the application I was finding that the 
     - Base language for templates.
 - [Sweet alerts2](https://sweetalert2.github.io/)
     - Used for pop up alerts
+- [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+    - Used for form structure
 ### Packages Used
 - VSCODE
 - GITHUB/GITHUB DESKTOP- for storage and version control
