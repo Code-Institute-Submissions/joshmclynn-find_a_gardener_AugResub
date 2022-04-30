@@ -115,6 +115,7 @@ who is available to help them.
    - As a site owner I would like to implement an email function, allowing users to email customers or businesses directly from the application(django.mail, or django.postman)
    - As a user/site owner, I would like to be able to tailor my search results based on distance. (i.e 'within 10 miles of my locations) this could be achieved by using django.locations.
    - The implementation of a description area for users profiles, to include the information about themselves and maybe their website etc.
+   - Small update on the matches page to have a jinja for loop to change from "services needed" to "services provided" based on the 'user_type' of the logged in user.
  ## Testing
  ### Testing Implementation Strategy
  When testing this site I found that testing it manually as a user would prove to be the most effect method for the application in its current stage.
