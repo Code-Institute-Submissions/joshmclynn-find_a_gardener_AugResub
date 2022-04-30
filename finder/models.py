@@ -12,23 +12,14 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 # Model for business users
-CHOICES = [('customer','Customer'),('business','Business')]
-NEEDS = [('garden-maintenance','Garden-Maintenance'),('garden-design','Garden-Design'),('landscaping','Landscaping'),('tree-surgery','Tree-Surgery')]
+CHOICES = [('customer', 'Customer'), ('business', 'Business')]
+NEEDS = [('garden-maintenance', 'Garden-Maintenance'),
+         ('garden-design', 'Garden-Design'),
+         ('landscaping', 'Landscaping'), ('tree-surgery', 'Tree-Surgery')]
 
 
-## Model to add to allauth user model
+# Model to add to allauth user model
 class CustomUser(AbstractUser):
-    user_type = MultiSelectField(choices = CHOICES, max_choices = 1)
-    needs = MultiSelectField(choices = NEEDS, max_choices = 4)
-    location = models.CharField(max_length=255, blank = True, editable=True)
-    
-    
-    
-
-    
-    
-   
-        
-                             
-    
-    
+    user_type = MultiSelectField(choices=CHOICES, max_choices=1)
+    needs = MultiSelectField(choices=NEEDS, max_choices=4)
+    location = models.CharField(max_length=255, blank=True, editable=True)
