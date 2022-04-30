@@ -47,8 +47,8 @@ who is available to help them.
   complete in order to fulfill what I had envisioned when planning this application.
    1. #### Django Project Setup
       - Django Setup, I want to be able to set up Django and install the needed libraries that I have percieved that I will need.
-      - Creating and storing keys, I want a secure enviroment to hold secrete keys to avoid exploitation of the application.
-      - Deployment to Heroku, I want to be able to deploy to heroku at the earliest possible chance to ensure continues testing and development of the site.
+      - Creating and storing keys, I want a secure enviroment to hold secret keys to avoid exploitation of the application.
+      - Deployment to Heroku, I want to be able to deploy to heroku at the earliest possible chance to ensure continuous testing and development of the site.
    2. #### Custom User Profiles
       - Create a User account, As a user I want all the information that I provide to be meaningful and relevant information.
       - Users can change profile, As a user I want to be able to change what services I am interested in and the area that I am located.
