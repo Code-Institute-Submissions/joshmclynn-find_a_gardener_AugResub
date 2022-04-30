@@ -25,6 +25,6 @@ urlpatterns = [
     path('', views.index , name = 'index'),
     path('accounts/', include('allauth.urls')),
     path('matches/', views.matches,name = 'Matches'),
-    path('profile/', views.profile, name = "profile")
-    
+    path('profile/', views.profile, name = "profile"),
+    path('delete/', views.delete, name = "delete")
 ]

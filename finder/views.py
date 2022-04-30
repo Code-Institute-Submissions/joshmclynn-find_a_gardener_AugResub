@@ -3,7 +3,7 @@ from django.views import generic
 from .models import CustomUser
 from django.views.generic import ListView
 from django.contrib.auth import get_user_model
-from .forms import updateProfile
+from .forms import update_profile
 from django.contrib.auth.decorators import login_required
 import sweetify
 
@@ -62,7 +62,8 @@ def matches(request):
                               
             
        ##returns results excluding current user
-        context = {'allusers': local_users.values('username','email','location','needs','user_type').exclude(username = request.user).exclude(username = 'find-a-gardener')}
+        context = {'allusers': local_users.values('username','email','location','needs','user_type')
+                   .exclude(username = request.user).exclude(username = 'find-a-gardener')}
         if(local_users.count()==0):
             sweetify.warning(request, 'Unfortunately there is no one else in your area at the minute, try again soon!')
         
@@ -78,15 +79,28 @@ def matches(request):
 @login_required
 def profile(request):
     if request.method == 'POST':
-        userform = updateProfile(request.POST, instance = request.user)
+        userform = update_profile(request.POST, instance = request.user)
         
         if userform.is_valid():
             userform.save()
             sweetify.success(request,title='Your profile has been updated!')
             return redirect(to='index',)
     else:
-        user_form = updateProfile(instance= request.user)
+        user_form = update_profile(instance= request.user)
         
     
     return render(request, 'profile.html', {'user_form': user_form})
-            
+
+
+
+## Function for the user to delete their account
+@login_required
+def delete(request):
+    try:
+        a = CustomUser.objects.get(username = request.user.username)
+        a.delete()
+        sweetify.success(request,title='Your profile has been deleted!')
+    except CustomUser.DoesNotExist:
+        sweetify.error(request,title='Profile does not exist')
+
+    return redirect(to='index')        

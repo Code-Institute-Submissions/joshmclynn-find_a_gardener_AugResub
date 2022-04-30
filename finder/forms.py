@@ -42,7 +42,7 @@ class CustomSignupForm(SignupForm):
 
 
 ## Form for users to change attributes when logged in.        
-class updateProfile(forms.ModelForm):
+class update_profile(forms.ModelForm):
     email = forms.EmailField(required = True)
     needs = forms.MultipleChoiceField(
                                           widget = forms.CheckboxSelectMultiple,
