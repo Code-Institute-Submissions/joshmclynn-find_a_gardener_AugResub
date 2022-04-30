@@ -33,14 +33,18 @@
                         <div class="p-5">
                             <!--Return populated from matches view, takes individual users and displays them on seperate html elements.-->
                             <h2 class="display-5">{{key.username|capfirst}}</h2>
-                            <h3 class="display-6">Location</h3>
+                            <hr>
+                            <h3 class="display-6">Location:</h3>
                             <ul>{{key.location}}</ul>
-                            <h3 class="display-6">Services needed/provided</h3>
+                            <hr>
+                            <h3 class="display-6">Services needed/provided:</h3>
                             {% for need in key.needs%}
                             <ul>{{need}}</ul>
                             {% endfor %}
-                            <h3 class="display-6">Contact Details</h3>
-                            <ul id="emailCopy">{{key.email}}</ul>
+                            <hr>
+                            <h3 class="display-6">Contact Details:</h3>
+                            <ul >{{key.email}}</ul>
+                            <hr>
                         </div>
                     </div>
                 </div>
