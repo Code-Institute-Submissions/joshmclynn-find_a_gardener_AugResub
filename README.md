@@ -1,7 +1,7 @@
 # Find a Gardener
 ## Introduction
 Find a gardener is an application built in django using python with html and css. It allows users to find local garden companies or customers which require particular
-services. Targeting both business' and customers, it allows users to select various services that they offer, or need and target certain cities in order to find someone
+services. Targeting both businesses and customers, it allows users to select various services that they offer, or need and target certain cities in order to find someone
 who is available to help them. 
 ![Home Screen](https://github.com/joshmclynn/find_a_gardener/blob/main/assets/screenshots/home.PNG)
 [To view the live site please click here](https://find-a-gardener.herokuapp.com/)
@@ -28,7 +28,7 @@ who is available to help them.
 ## User Experience/Design(UX)
   ### Goals
   #### Ideal Users
-  - Customers looking for contracters in their local area to carry out works
+  - Customers looking for contractors in their local area to carry out works
   - Business's looking to offer their services to customers in their local area.
   - Someone looking for activity regarding horticultural services in certain areas.
   #### Site Goals
@@ -47,8 +47,8 @@ who is available to help them.
   complete in order to fulfill what I had envisioned when planning this application.
    1. #### Django Project Setup
       - Django Setup, I want to be able to set up Django and install the needed libraries that I have percieved that I will need.
-      - Creating and storing keys, I want a secure enviroment to hold secrete keys to avoid exploitation of the application.
-      - Deployment to Heroku, I want to be able to deploy to heroku at the earliest possible chance to ensure continues testing and development of the site.
+      - Creating and storing keys, I want a secure enviroment to hold secret keys to avoid exploitation of the application.
+      - Deployment to Heroku, I want to be able to deploy to heroku at the earliest possible chance to ensure continuous testing and development of the site.
    2. #### Custom User Profiles
       - Create a User account, As a user I want all the information that I provide to be meaningful and relevant information.
       - Users can change profile, As a user I want to be able to change what services I am interested in and the area that I am located.
@@ -115,6 +115,7 @@ who is available to help them.
    - As a site owner I would like to implement an email function, allowing users to email customers or businesses directly from the application(django.mail, or django.postman)
    - As a user/site owner, I would like to be able to tailor my search results based on distance. (i.e 'within 10 miles of my locations) this could be achieved by using django.locations.
    - The implementation of a description area for users profiles, to include the information about themselves and maybe their website etc.
+   - Small update on the matches page to have a jinja for loop to change from "services needed" to "services provided" based on the 'user_type' of the logged in user.
  ## Testing
  ### Testing Implementation Strategy
  When testing this site I found that testing it manually as a user would prove to be the most effect method for the application in its current stage.
