@@ -18,18 +18,21 @@ class CustomSignupForm(SignupForm):
         fields = ('user_type', 'needs', 'location')
 
         user_type = forms.ChoiceField(choices=CHOICES,
-                                      label='Are you a Business or a Customer?')
+                                      label="""Are you a Business or a
+                                      Customer?"""
+                                      )
 
         needs = forms.MultipleChoiceField(
                                           widget=forms.CheckboxSelectMultiple,
                                           choices=NEEDS,
-                                          label='What services do you provide or need?'
+                                          label="""What services do you
+                                          provide or need?"""
                                         )
         location = forms.CharField(
                                    label='What City do you live in?',
                                    required=True
                                     )
-         
+
         class Meta:
             model = CustomUser
 
@@ -42,13 +45,14 @@ class CustomSignupForm(SignupForm):
             return user
 
 
-# Form for users to change attributes when logged in.   
+# Form for users to change attributes when logged in.
 class update_profile(forms.ModelForm):
     email = forms.EmailField(required=True)
     needs = forms.MultipleChoiceField(
                                           widget=forms.CheckboxSelectMultiple,
                                           choices=NEEDS,
-                                          label='What services do you provide or need?'                       
+                                          label="""What services do you
+                                          provide or need?"""
                                           )
     location = forms.CharField(
                                 max_length=30,

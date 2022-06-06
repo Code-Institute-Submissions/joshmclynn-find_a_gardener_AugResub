@@ -18,7 +18,6 @@ if os.path.isfile("env.py"):
     import env
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -32,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ["find-a-gardener.herokuapp.com","localhost","127.0.0.1"]
+ALLOWED_HOSTS = ["find-a-gardener.herokuapp.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -47,32 +46,31 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    ##3rd party
+    # 3rd party
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'sweetify',
     'crispy_forms',
-    ##app
+    # app
     'finder',
 ]
 
 SITE_ID = 1
 
 ACCOUNT_FORMS = {
-    'signup':'finder.forms.CustomSignupForm',
+    'signup': 'finder.forms.CustomSignupForm',
 }
-##changing allauth user model
+# changing allauth user model
 AUTH_USER_MODEL = 'finder.CustomUser'
-##email account required but no verification required
+# email account required but no verification required
 ACCOUNT_EMAIL_REQUIRED = True
 LOGIN_REDIRECT_URL = 'Matches'
 LOGOUT_REDIRECT_URL = '/'
 ACCOUNT_EMAIL_VERIFICATION = None
-##3rd party libraries
+# 3rd party libraries
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
-
 
 
 MIDDLEWARE = [
@@ -98,7 +96,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                
+
             ],
         },
     },
@@ -111,9 +109,10 @@ WSGI_APPLICATION = 'find_a_gardener.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(
+                                    os.environ.get("DATABASE_URL")
+                                    )
 }
 
 
@@ -122,16 +121,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
