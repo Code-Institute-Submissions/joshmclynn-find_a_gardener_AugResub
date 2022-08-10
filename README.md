@@ -120,33 +120,68 @@ who is available to help them.
  ### Testing Implementation Strategy
  When testing this site I found that testing it manually as a user would prove to be the most effect method for the application in its current stage.
  
- #### Testing Goals
+ ### Testing Goals
  Testing was ordered into sections of how a user would process through the site, I started to implement these tests as soon as it was feasibly possible in order 
  to allow me to fix issues during development instead of backtracking and potentially causing more issues as development went on.
  
- #### Validator Testing
+ ### Validator Testing
  All code has been validated using the appropriate validators. The code itself was passing the validators a few variables were detected whilst going through the validation process though.
- - The w3 html validator did not seem to like the way the {{for loops}} were written, although I believe this is not an error which I would be able to fix due to the nature of the result from the validator.
-![Html Validator Result](https://github.com/joshmclynn/find_a_gardener/blob/main/assets/screenshots/htmlval.PNG)
-- VScode picked up a few 'problems' when developing as I have a habit of writing function names in camelCase due to previous experience with java. This was easily rectified.
-#### User Testing.
+ #### PEP8
+ - admin.py PASS
+ - forms.py PASS
+ - models.py PASS
+ - views.py PASS
+ - settings.py 
+  - line 113 to long, found no viable place to split this line.
+  - line 149 to long, found no viable place to split this line.
+#### HTML
+  - Validated using vscodes inbuilt plug in to validate on save.
+    - PASS
+#### CSS(jigsaw)
+  - PASS
+### User Testing.
 
-- Sign up form:
-      - Goal = Try to break the form
-      - Method = Input various random inputs when filling the form in hoping to exploit any shortcomings.
-      - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form.
-- Updating Profile:
-      - Goal = Try to break the form
-      - Method = Input various random inputs when filling the form in hoping to exploit any short comings.
-      - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form.
-- User Confusion:
-      - Goal = Full cycle of website from sign up to matches.
-      - Method = Run through the steps the user would take to sign up to the application
-      - Outcome = I found that if the user entered their city they lived in where there was not any matches, the site would not load anything potentially leading to confusion, I decided to solve this by creating pop up messages, in the event that the user has no matches in there area.
-- Responsiveness:
-      - Goal = Test Responsiveness of the full application.
-      - Method = Use Chrome Dev Tools to test responsibility of the site
-      - Outcome = Site works on all available options within chrome dev tools, slight overflow on index.html at 320px, I believe that due to increasing phone sizes 320px issues would be negligable.
+- As a user, I want to be able to sign up:
+  - Goal = Try to sign in as a new user
+  - Method = Input various random inputs when filling the form in hoping to exploit any shortcomings.
+  - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form.
+  - PASS
+- As a user, I want to be able to Update my Profile
+  - Goal = Try to update profile settings
+  - Method = Change various inputs when editing a user profile and to see the user side changes in the matches section
+  - Outcome = Due to the form has an amount of validation within the functions I currently have not found a way to exploiting the form 
+  - PASS
+- As a user, I want to be able to navigate through the site with ease
+  - Goal: Full cycle of website from sign up to matches.
+  - Method : Run through the steps the user would take to sign up to the application 
+    - NEW USER
+      - Navigate to the site through the main page url
+      - Access Sign up page
+      - Continue to see matches page
+      - Edit profile area
+      - Delete profile
+      - PASS
+    - RETURNING USER
+      - Navigate to the site through the main page url
+      - Access login page
+      - Access matches page
+      - Access logout function
+      - Access profile delete page
+      - PASS
+    - URL METHOD:
+      - Manually entered site url pages
+      - PASS
+- As a user, I want to be able to login and log out securely:
+  - Access the login page as a returning user and securely log in.
+    - PASS
+  - Access the logout page a current user logged in and securely logout.
+    - PASS
+                 
+      
+- As a user I wanto be able to use the application on various platforms:
+  - Goal = Test Responsiveness of the full application.
+  - Method = Use Chrome Dev Tools to test responsibility of the site
+  - Outcome = Site works on all available options within chrome dev tools, slight overflow on index.html at 320px, I believe that due to increasing phone sizes 320px issues would be negligable.
       
 #### Notable Bugs
 When trying to implement Javascript into the application I was finding that the Javascript file would not load into the application, I eventually had to move away from using Javascript explicitly in the application due to not being able to find a reason for this. Potential issues with the IDE.
